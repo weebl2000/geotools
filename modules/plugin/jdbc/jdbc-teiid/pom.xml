@@ -1,0 +1,28 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.geotools.jdbc</groupId>
+    <artifactId>gt-jdbc</artifactId>
+    <version>15-SNAPSHOT</version>
+  </parent>
+  <groupId>org.geotools.jdbc</groupId>
+  <artifactId>gt-jdbc-teiid</artifactId>
+  <version>15-SNAPSHOT</version>
+  <name>Teiid Plugin</name>
+  <description>Datastore for Teiid VDB</description>
+
+  <!-- =========================================================== -->
+  <!--     Developers and Contributors                             -->
+  <!-- =========================================================== -->
+  <developers>
+    <developer>
+      <name>Wessel Nieboer</name>
+      <id>weebl2000</id>
+      <email>wessel.nieboer@onior.com</email>
+      <organization>Onior</organization>
+      <roles>
+        <role>Java Developer</role>
+      </roles>
+    </developer>
+  </developers>
+</project>
