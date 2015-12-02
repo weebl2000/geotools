@@ -4,12 +4,27 @@ import org.geotools.jdbc.JDBCDataStore;
 import org.geotools.jdbc.JDBCDataStoreFactory;
 import org.geotools.jdbc.SQLDialect;
 
+import java.util.Map;
+
 /**
  * Created by weebl on 2-12-15.
  *
  * @author Wessel Nieboer
  */
 public class TeiidDataStoreFactory extends JDBCDataStoreFactory {
+	/** parameter for database type */
+	public static final Param DBTYPE = new Param("dbtype", String.class, "Type", true,"teiid");
+	/** Default port number for MYSQL */
+	public static final Param PORT = new Param("port", Integer.class, "Port", true, 31000);
+
+	@Override
+	protected void setupParameters(Map parameters) {
+		super.setupParameters(parameters);
+		parameters.put(DBTYPE.key, DBTYPE);
+		parameters.put(PORT.key, PORT);
+
+		parameters.remove(SCHEMA.key);
+	}
 	/**
 	 * Returns a string to identify the type of the database.
 	 * <p>
@@ -37,7 +52,7 @@ public class TeiidDataStoreFactory extends JDBCDataStoreFactory {
 	 * @param dataStore The datastore.
 	 */
 	@Override protected SQLDialect createSQLDialect( JDBCDataStore dataStore ) {
-		return null;
+		return new TeiidDialect(dataStore);
 	}
 
 	/**
@@ -48,7 +63,7 @@ public class TeiidDataStoreFactory extends JDBCDataStoreFactory {
 	 * @return
 	 */
 	@Override protected String getValidationQuery() {
-		return null;
+		return "SELECT 1";
 	}
 
 	/**
