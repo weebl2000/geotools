@@ -14,7 +14,7 @@ import java.util.Map;
 public class TeiidDataStoreFactory extends JDBCDataStoreFactory {
 	/** parameter for database type */
 	public static final Param DBTYPE = new Param("dbtype", String.class, "Type", true,"teiid");
-	/** Default port number for MYSQL */
+	/** Default port number for VDB */
 	public static final Param PORT = new Param("port", Integer.class, "Port", true, 31000);
 
 	@Override
@@ -28,7 +28,7 @@ public class TeiidDataStoreFactory extends JDBCDataStoreFactory {
 	/**
 	 * Returns a string to identify the type of the database.
 	 * <p>
-	 * Example: 'postgis'.
+	 * Example: 'teiid'.
 	 * </p>
 	 */
 	@Override protected String getDatabaseID() {
@@ -38,7 +38,7 @@ public class TeiidDataStoreFactory extends JDBCDataStoreFactory {
 	/**
 	 * Returns the fully qualified class name of the jdbc driver.
 	 * <p>
-	 * For example: org.postgresql.Driver
+	 * For example: org.teiid.jdbc.TeiidDriver
 	 * </p>
 	 */
 	@Override protected String getDriverClassName() {
@@ -76,6 +76,6 @@ public class TeiidDataStoreFactory extends JDBCDataStoreFactory {
 	 * list of available datasources.
 	 */
 	@Override public String getDescription() {
-		return "Hackity-hack Teiid driver which may or may not use JDBC, but pretends it does";
+		return "Teiid JDBC Datasource";
 	}
 }

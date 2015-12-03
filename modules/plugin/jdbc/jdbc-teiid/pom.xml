@@ -25,4 +25,12 @@
       </roles>
     </developer>
   </developers>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.jboss.teiid</groupId>
+      <artifactId>teiid-client</artifactId>
+      <version>8.12.2</version>
+    </dependency>
+  </dependencies>
 </project>
